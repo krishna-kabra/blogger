@@ -1,0 +1,82 @@
+{% extends 'layout.html' %}
+{% block title %}Dashboard{% endblock %}
+{% block body %}
+ 
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('{{ url_for('static',filename='img/home-bg.jpg') }}')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>Admin Panal</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <br>
+  
+    <div class="container">
+  <a class="btn btn-primary" href="/login">Back 2 Dashboard</a>
+  <a class="btn btn-primary" href="#">LogOut</a>
+  <hr>
+  
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        
+        <form name="sentMessage" method ="post" action ="/edit/{{sno}}" id="contactForm" novalidate>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Title</label>
+              <input type="text" class="form-control" placeholder="Title" name ="title" id="name" value="{{post.title}}" required data-validation-required-message="Please enter your name.">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Subtitle</label>
+              <input type="email" class="form-control" placeholder="Sub-Title" name="subtitle" id="name" value="{{post.subtitle}}" required data-validation-required-message="Please enter your email address.">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group col-xs-12 floating-label-form-group controls">
+              <label>Slug</label>
+              <input type="tel" class="form-control" placeholder="slug" name="slug" id="phone" value="{{post.slug}}" required data-validation-required-message="Please enter your phone number.">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group col-xs-12 floating-label-form-group controls">
+              <label>Image File</label>
+              <input type="tel" class="form-control" placeholder="image_file" name="image" id="phone" value="{{post.image}}" required data-validation-required-message="Please enter your phone number.">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Content</label>
+              <input type="content" class="form-control" placeholder="content" name="content" id="message" value="{{post.content}}" required data-validation-required-message="Please enter a message.">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <br>
+          <div id="success"></div>
+          <button type="submit" class="btn btn-primary" id="sendMessageButton">submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+        <!-- Pager -->
+        <div class="clearfix">
+          <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ {% endblock %}

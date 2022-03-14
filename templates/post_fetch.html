@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+{% block title %}All Posts{% endblock %}
+{% block body %}
+<br>
+<br>
+<div class="container">
+<h1><b>All Post Are Here</b></h1>
+</div>
+<hr>
+<br>
+<div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+      {% for post in post %}
+        <div class="post-preview">
+          <a href="/post/{{post.slug}}">
+            <h2 class="post-title">
+              {{post.title}}
+            </h2>
+            <h3 class="post-subtitle">
+              {{post.subtitle}}
+            </h3>
+          </a>
+          <p class="post-meta">Posted by
+            <a href="#">Krishna kabra</a>
+            on {{post.date}}</p>
+        </div>
+        <hr>
+        <br>
+        {% endfor %}
+
+</div>
+</div>
+</div>
+
+{% endblock %}

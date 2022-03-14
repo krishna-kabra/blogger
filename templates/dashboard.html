@@ -1,0 +1,53 @@
+{% extends 'layout.html' %}
+{% block title %}Dashboard{% endblock %}
+{% block body %}
+ 
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('{{ url_for('static',filename='img/home-bg.jpg') }}')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>Admin Panal</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <br>
+  <hr>
+  
+
+
+  <div class="container">
+  <a class="btn btn-primary" href="/edit/0">Add New Post</a>
+  <a class="btn btn-primary" href="/logout">LogOut</a>
+  <br>
+
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Sno</th>
+      <th scope="col">Title</th>
+      <th scope="col">Slug</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  {% for post in post %}
+  <tbody>
+    <tr>
+      <th scope="row">{{ post.sno }}</th>
+      <td>{{ post.title }}</td>
+      <td>{{ post.slug }}</td>
+      <td><a class="btn btn-primary" href="/edit/{{post.sno}}">Edit</a></td>
+      <td><a class="btn btn-primary" href="/delete/{{post.sno}}">Delete</a></td>
+    </tr>
+
+  </tbody>
+  {% endfor %}
+</table>
+</div>
+  
+ {% endblock %}
